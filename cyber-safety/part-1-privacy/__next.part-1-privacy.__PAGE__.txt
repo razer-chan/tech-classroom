@@ -1,0 +1,10 @@
+1:"$Sreact.fragment"
+2:I[4134,[],"ClientPageRoot"]
+3:I[7970,["82","static/chunks/82-0899674d730398e2.js","249","static/chunks/app/part-1-privacy/page-b8cac3da74f23221.js"],"default"]
+6:I[3554,[],"OutletBoundary"]
+7:"$Sreact.suspense"
+:HL["/tech-classroom/cyber-safety/_next/static/css/38a4d9e0955655d7.css","style"]
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/tech-classroom/cyber-safety/_next/static/css/38a4d9e0955655d7.css","precedence":"next"}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"ns4zW3NfbqDEIfeBSZxpJ"}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null

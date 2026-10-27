@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tech Classroom</title>
+<meta name="description" content="Classroom materials for Digital Technologies: slides, interactive demos, Scratch files and worksheets.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23286e58'/%3E%3Ctext x='11' y='29' fill='white' font-family='sans-serif' font-size='26' font-weight='700'%3Et%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #f7f6f1; --panel: #ffffff; --ink: #1f2a25; --muted: #5f6b65; --line: #e2e1d8;
+    --accent: #286e58; --accent-soft: #e5efe9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #151917; --panel: #1e2421; --ink: #e9ece9; --muted: #a3ada7; --line: #303733; --accent: #6cc2a3; --accent-soft: #1f322b; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  main { max-width: 1040px; margin: 0 auto; padding: 64px 24px 48px; }
+  .eyebrow { margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: .12em; color: var(--accent); }
+  h1 { margin: 0; font-size: clamp(34px, 6vw, 52px); line-height: 1.1; }
+  .intro { margin: 14px 0 40px; max-width: 620px; color: var(--muted); font-size: 19px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .card {
+    display: flex; flex-direction: column; gap: 10px; padding: 26px 24px 22px;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+    color: inherit; text-decoration: none; transition: border-color .15s, transform .15s;
+  }
+  .card:hover, .card:focus-visible { border-color: var(--accent); transform: translateY(-2px); }
+  .icon {
+    width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center;
+    background: var(--accent-soft); color: var(--accent); font-size: 24px;
+  }
+  .card h2 { margin: 6px 0 0; font-size: 23px; }
+  .card p { margin: 0; color: var(--muted); }
+  .card ul { margin: 2px 0 0; padding-left: 18px; color: var(--muted); font-size: 15px; }
+  .go { margin-top: auto; padding-top: 10px; font-weight: 700; color: var(--accent); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">TECH CLASSROOM</p>
+  <h1>Classroom materials</h1>
+  <p class="intro">Slides, interactive demos and student files for Digital Technologies lessons. Everything runs in the browser. Nothing to install, no logins.</p>
+
+  <div class="grid">
+    <a class="card" href="cyber-safety/">
+      <span class="icon" aria-hidden="true">🔒</span>
+      <h2>Cyber Safety</h2>
+      <p>Four short slide decks to use alongside Grok Learning.</p>
+      <ul>
+        <li>Privacy: every click leaves a clue</li>
+        <li>Passwords</li>
+        <li>Password reuse and MFA</li>
+        <li>Phishing</li>
+      </ul>
+      <span class="go">Open slides →</span>
+    </a>
+
+    <a class="card" href="scratch/">
+      <span class="icon" aria-hidden="true">🐱</span>
+      <h2>Scratch</h2>
+      <p>Four lessons with interactive demos and ready-to-load <code>.sb3</code> files.</p>
+      <ul>
+        <li>Events and sequence</li>
+        <li>Loops and if-else</li>
+        <li>Animate your name</li>
+        <li>Airplane Battle: test and debug</li>
+      </ul>
+      <span class="go">Open lessons →</span>
+    </a>
+
+    <a class="card" href="edison-robot/">
+      <span class="icon" aria-hidden="true">🤖</span>
+      <h2>Edison Robot</h2>
+      <p>Program the Edison robot through the maze.</p>
+      <ul>
+        <li>Task brief and scoring (10 steps)</li>
+        <li>3D step-by-step demo: 3D, top and follow views</li>
+      </ul>
+      <span class="go">Open the maze →</span>
+    </a>
+  </div>
+
+  <footer>Free to use in class. Scratch cat artwork © Scratch Foundation (CC BY-SA 2.0). 3D rendering by three.js (MIT).</footer>
+</main>
+</body>
+</html>

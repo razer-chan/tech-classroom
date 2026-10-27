@@ -1,0 +1,15 @@
+# Tech Classroom
+
+Classroom materials for Digital Technologies lessons: slides, interactive demos, Scratch files and worksheets. Every page is static and runs in the browser. There are no logins and no data is collected.
+
+**Live site:** https://razer-chan.github.io/tech-classroom/
+
+| Course | Link | What's inside |
+|---|---|---|
+| Cyber Safety | [cyber-safety/](https://razer-chan.github.io/tech-classroom/cyber-safety/) | Slides for privacy, passwords, password reuse + MFA, and phishing. Use alongside Grok Learning "Information Privacy and Security – Secondary" |
+| Scratch | [scratch/](https://razer-chan.github.io/tech-classroom/scratch/) | 4 lessons (40 slides) with interactive demos. Each `Lesson …` folder has the `.sb3` files; Lesson 4 has the debugging worksheet and the fixed teacher version |
+| Edison Robot | [edison-robot/](https://razer-chan.github.io/tech-classroom/edison-robot/) | Maze task brief, 10-step scoring, 3D step-by-step demo |
+
+On a projector: ← → change slides, **F** for full screen. Students load `.sb3` files in Scratch with **File → Load from your computer**.
+
+The `scratch/` and `edison-robot/` folders also work offline: download the repo and double-click `index.html`. `cyber-safety/` is a Next.js export built for this site's address, so it needs to be served from here.
