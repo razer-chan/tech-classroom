@@ -1,0 +1,58 @@
+{
+  "microphone": {
+    "title": "Stream Capsule - USB Microphone",
+    "source": "https://www.innerscene.com/tools/library/3d-parts/stream-capsule-usb-microphone-067cbd2a",
+    "author": "Innerscene",
+    "license": "CC0-1.0",
+    "file": "microphone.glb"
+  },
+  "speaker": {
+    "title": "Studio Two - Bookshelf Speaker",
+    "source": "https://www.innerscene.com/tools/library/3d-parts/studio-two-bookshelf-speaker-41658b0e",
+    "author": "Innerscene",
+    "license": "CC0-1.0",
+    "file": "speaker.glb"
+  },
+  "printer": {
+    "title": "Page One - Laser Printer",
+    "source": "https://www.innerscene.com/tools/library/3d-parts/page-one-laser-printer-242caf15",
+    "author": "Innerscene",
+    "license": "CC0-1.0",
+    "file": "printer.glb"
+  },
+  "camera": {
+    "title": "Web Eye - Webcam",
+    "source": "https://www.innerscene.com/tools/library/3d-parts/web-eye-webcam-4d75b262",
+    "author": "Innerscene",
+    "license": "CC0-1.0",
+    "file": "camera.glb"
+  },
+  "projector": {
+    "title": "Project Box - Projector",
+    "source": "https://www.innerscene.com/tools/library/3d-parts/project-box-projector-6d147ec3",
+    "author": "Innerscene",
+    "license": "CC0-1.0",
+    "file": "projector.glb"
+  },
+  "touchscreen": {
+    "title": "Screen One - All-in-One Computer",
+    "source": "https://www.innerscene.com/tools/library/3d-parts/screen-one-all-in-one-computer-6bc2e4e0",
+    "author": "Innerscene",
+    "license": "CC0-1.0",
+    "file": "touchscreen.glb"
+  },
+  "external": {
+    "title": "Archive One - External Hard Drive",
+    "source": "https://www.innerscene.com/tools/library/3d-parts/archive-one-external-hard-drive-d691ead0",
+    "author": "Innerscene",
+    "license": "CC0-1.0",
+    "file": "external.glb"
+  },
+  "server": {
+    "file": "server.dae",
+    "title": "Server rack 42u - Original MEP CAD",
+    "source": "https://www.innerscene.com/tools/library/3d-parts/server-rack-42u-original-mep-cad-collada-dae-062fab6f",
+    "author": "Innerscene",
+    "license": "CC0-1.0"
+  }
+}
