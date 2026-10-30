@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cargo Arena Challenge</title>
+<meta name="description" content="Digital Technology: program a LEGO SPIKE Prime robot to deliver a block and follow a line. Task brief and 3D step-by-step demonstration.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23286e58'/%3E%3Cpath d='M9 10h14v13H9zM16 6v4' fill='none' stroke='%23cfe9df' stroke-width='2'/%3E%3Ccircle cx='13' cy='16' r='2' fill='white'/%3E%3Ccircle cx='20' cy='16' r='2' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="spike">
+<header class="site-header"><span class="site-title">SPIKE Prime Cargo Arena</span><div class="header-tools"><button id="sound" class="header-control" aria-pressed="true" aria-label="Mute scoring sounds" title="Mute scoring sounds"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4Z"/><g class="sound-waves"><path d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/></g><path class="sound-slash" d="m16 9 6 6m0-6-6 6"/></svg><span class="control-label">Sound on</span><span class="sound-indicator" aria-hidden="true"></span></button><button id="fullscreen" class="header-control" aria-pressed="false" aria-label="Enter fullscreen" title="Enter fullscreen"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="expand-icon" d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/><path class="collapse-icon" d="M3 8h5V3m8 0v5h5M8 21v-5H3m13 5v-5h5"/></svg><span class="control-label">Full screen</span></button></div></header>
+
+<main id="lesson">
+<section class="task-intro" aria-labelledby="task-title">
+<p class="eyebrow">DIGITAL TECHNOLOGY · LEGO SPIKE PRIME</p>
+<h1 id="task-title">Cargo Arena Challenge</h1>
+<p class="task-lead">Program your SPIKE Prime robot to find the block, carry it to the red target, then follow the black line and stop before Finish.</p>
+<div class="task-facts">
+<div><b>Goal</b><span>Block → red target, then follow the line and stop before Finish.</span></div>
+<div><b>Must do</b><span>Stop at the block with the distance sensor. Lower the frame over the block before you push.</span></div>
+<div><b>Points</b><span>8 steps · 10 points · the red centre dot is worth 1 extra point</span></div>
+<div><b>This page</b><span>Watch each step below, then write your own program.</span></div>
+</div>
+</section>
+
+<div class="lesson-heading"><div class="lesson-title-line"><h2>Watch the route, step by step</h2></div><div id="score-panel" class="score-panel"><span>Score</span><strong><span id="score">0</span><small> / 10</small></strong></div></div>
+<div class="lesson-layout"><section class="arena-column" aria-label="Interactive robot demonstration"><div class="arena-shell"><div class="arena-top"><div class="view-controls" aria-label="Camera views"><button data-view="perspective" class="active">3D view</button><button data-view="top">Top view</button><button data-view="follow">Follow robot</button></div></div><div id="arena"><div id="canvas-fallback" hidden>3D rendering is unavailable in this browser. Try a browser with WebGL enabled.</div></div><div class="arena-help">Drag to rotate · Scroll to zoom</div><div id="award" class="award" role="status"></div><div id="score-burst" aria-hidden="true"></div><div id="finished" class="finished" hidden><span>✓</span><div><strong>10 / 10</strong><p>All 8 steps completed.</p></div></div></div>
+<div class="playback"><div class="playback-main"><button id="reset" class="icon-button" aria-label="Reset demonstration" title="Reset">↺</button><button id="previous" class="icon-button" aria-label="Previous step" title="Previous step">←</button><button id="play-step" class="primary-button">▶ Start step 1</button><button id="next" class="icon-button" aria-label="Next step" title="Next step">→</button><span class="control-separator"></span><button id="play-all" class="secondary-button">▶ Play all</button><label class="speed-label">Speed<select id="speed" aria-label="Playback speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label></div><div class="timeline-row"><span id="time-current">0:00</span><input id="timeline" type="range" min="0" max="100" value="0" step="0.02" aria-label="Demonstration timeline"><span id="time-total">0:00</span></div></div>
+<div class="instruction-card"><span id="instruction-number">READY</span><div><h2 id="instruction-title">Task</h2><p id="instruction-text"></p></div></div></section>
+<aside class="steps-panel"><div class="steps-panel-heading"><h2>Scoring criteria</h2></div><div id="steps"></div><div id="rubric-note" class="rubric-note"></div></aside></div>
+</main>
+<script src="spike.js"></script>
+</body></html>
