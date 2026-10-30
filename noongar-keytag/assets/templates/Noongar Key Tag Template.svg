@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="55mm"
+   height="55mm"
+   viewBox="0 0 55 55"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="Pendant Template.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2.0888419"
+     inkscape:cx="103.16722"
+     inkscape:cy="97.90114"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Pendant Design Template"
+     inkscape:groupmode="layer"
+     id="layer1"
+     sodipodi:insensitive="true"
+     transform="translate(0,2.0722536)">
+    <g
+       id="g1">
+      <path
+         id="path1030-2-26"
+         style="fill:none;stroke:#ff0000;stroke-width:0.231788"
+         d="M 26.982541,0.553713 C 16.1932,0.62148531 5.9796177,8.6125433 3.4200353,19.111969 0.87998402,28.553172 4.492743,39.394972 12.402351,45.215259 19.227845,50.441941 28.844561,51.843912 36.805444,48.50542 44.9979,45.224597 51.200325,37.335025 52.185743,28.530217 53.230292,20.495325 50.100018,12.004728 43.912191,6.7298243 39.293273,2.6770933 33.137633,0.37313826 26.982541,0.553713 Z"
+         sodipodi:nodetypes="ccccccc" />
+      <path
+         id="path1030-2-26-5"
+         style="fill:none;stroke:#ff0000;stroke-width:0.2;stroke-dasharray:none"
+         d="m 27.458779,6.2513043 c -0.863166,-0.0053 -1.68027,-0.644716 -1.885041,-1.48468 -0.203208,-0.7553037 0.08582,-1.6226587 0.718601,-2.0882887 0.546051,-0.41814 1.315405,-0.530298 1.952289,-0.263223 0.65541,0.26247 1.151615,0.893646 1.23045,1.598039 0.08356,0.642798 -0.166862,1.3220527 -0.661898,1.7440497 -0.369521,0.324222 -0.861983,0.50854 -1.354401,0.494097 z"
+         sodipodi:nodetypes="ccccccc" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Pendant Design Drawing" />
+</svg>
