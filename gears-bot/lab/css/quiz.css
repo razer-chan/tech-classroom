@@ -1,0 +1,128 @@
+/* Robot Lab Quiz (uses the colours and buttons from lab.css) */
+body.quiz { min-height: 100vh; }
+body.quiz .toast { position: fixed; }
+.quiz-main { max-width: 1040px; margin: 0 auto; padding: 22px 20px 60px; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn.big { height: 46px; padding: 0 22px; font-size: 16px; border-radius: 12px; }
+
+/* Start */
+.start { max-width: 560px; margin: 40px auto 0; }
+.start h1 { margin: 8px 0 6px; font-size: clamp(30px, 5vw, 42px); line-height: 1.1; letter-spacing: -1px; }
+.start .lead { margin: 0 0 22px; color: var(--muted); font-size: 18px; }
+.start .name { display: grid; gap: 6px; font-weight: 700; }
+.start input { height: 46px; padding: 0 14px; border: 1px solid var(--line); border-radius: 12px; font: inherit; font-size: 17px; background: #fff; color: var(--ink); }
+.start input:focus { outline: 2px solid var(--teal); outline-offset: 1px; border-color: var(--teal); }
+.error { min-height: 22px; margin: 6px 0 10px; color: var(--red); font-weight: 650; font-size: 14px; }
+
+/* Progress dots */
+.q-progress { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; }
+.dot { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--muted); font-size: 11px; font-weight: 700; cursor: pointer; padding: 0; }
+.dot.done { background: #d6ece6; border-color: #b4dad0; color: var(--teal-dark); }
+.dot.now { border: 2px solid var(--teal); color: var(--teal-dark); }
+
+/* Question card */
+.q-card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px 24px 18px; }
+.q-prompt { margin: 6px 0 16px; font-size: 25px; line-height: 1.35; font-weight: 700; }
+.q-prompt strong { color: var(--teal-dark); }
+.q-figure { margin: 0 0 16px; padding: 14px; border-radius: 14px; background: #f3f8f6; overflow-x: auto; }
+.q-figure .block-pic svg, .q-figure > svg { display: block; }
+.how { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
+.q-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; }
+
+/* Block pictures */
+.block-pic { display: inline-block; max-width: 100%; line-height: 0; }
+.block-pic svg { background: none !important; max-width: 100%; height: auto; }
+.card-text { display: inline-block; }
+
+/* Multiple choice */
+.options { display: grid; gap: 10px; }
+.options.blocks { grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); }
+.options.blocks.long { grid-template-columns: 1fr; }
+.opt { display: flex; align-items: center; gap: 14px; min-height: 62px; padding: 12px 16px; text-align: left; border: 1.5px solid var(--line); border-radius: 14px; background: #fff; color: var(--ink); cursor: pointer; font-size: 19px; }
+.opt:hover { border-color: var(--teal); }
+.opt.on { border-color: var(--teal); background: #e9f5f1; box-shadow: inset 0 0 0 1px var(--teal); }
+.letter { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #eef3f1; color: var(--muted); font-weight: 800; font-size: 16px; }
+.opt.on .letter { background: var(--teal); color: #fff; }
+.opt-body { min-width: 0; overflow-x: auto; }
+
+/* Drag and drop */
+.board { display: grid; gap: 14px; }
+.zone { border: 2px dashed #c9d9d3; border-radius: 14px; background: #fafcfb; transition: border-color .15s, background .15s; }
+.zone.over { border-color: var(--teal); background: #e9f5f1; }
+.tray { display: flex; flex-wrap: wrap; gap: 8px; min-height: 64px; padding: 10px; align-items: center; }
+.empty { color: #9aaaa6; font-size: 14px; }
+.card { display: inline-flex; align-items: center; min-height: 50px; padding: 8px 14px; border: 1.5px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink); font-size: 17px; font-weight: 600; text-align: left; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; max-width: 100%; }
+.card:hover { border-color: var(--teal); }
+.card.picked { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(229, 161, 75, .35); }
+.card.lifted { opacity: .35; }
+.card.ghost { position: fixed; left: 0; top: 0; z-index: 50; pointer-events: none; cursor: grabbing; box-shadow: 0 14px 30px -12px rgba(36, 67, 74, .55); opacity: .95; }
+.slots { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.slot { display: flex; align-items: center; gap: 10px; min-height: 58px; padding: 6px 10px; }
+.num { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--teal); color: #fff; font-weight: 800; font-size: 14px; }
+.groups { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 10px; }
+.group { display: flex; flex-direction: column; min-height: 150px; padding: 10px; }
+.group-head { display: flex; flex-direction: column; align-items: center; gap: 2px; padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid var(--line); text-align: center; }
+.group-head strong { font-size: 19px; }
+.group-head span { color: var(--muted); font-size: 13px; }
+.group-cards { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.gap-slot { display: flex; align-items: center; gap: 10px; min-height: 64px; padding: 8px 12px; }
+
+/* Result */
+.score-card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 24px; }
+.score-num { font-size: 60px; font-weight: 800; line-height: 1; margin: 6px 0 0; letter-spacing: -2px; }
+.score-num small { font-size: 28px; color: var(--muted); letter-spacing: 0; }
+.score-card p { margin: 6px 0 14px; font-size: 18px; }
+.score-card p.small { margin: 12px 0 0; font-size: 13px; }
+.topics { display: grid; gap: 8px; margin: 16px 0 6px; padding: 16px 20px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
+.topic { display: grid; grid-template-columns: minmax(160px, 1fr) 2fr 44px; align-items: center; gap: 12px; font-size: 15px; }
+.topic .bar { height: 10px; border-radius: 6px; background: #e8efec; overflow: hidden; }
+.topic .bar i { display: block; height: 100%; background: var(--teal); border-radius: 6px; }
+.topic b { text-align: right; }
+.result h3 { margin: 26px 0 10px; }
+.review { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.review li { display: flex; gap: 12px; padding: 12px 14px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
+.review li.bad { border-color: #f1c7c2; }
+.mark { flex: none; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-weight: 900; background: var(--green); }
+.review li.bad .mark { background: var(--red); }
+.review-q { font-size: 15px; }
+.right-answer { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; font-size: 14px; }
+.right-answer > span { color: var(--muted); font-weight: 700; }
+.right-answer ol { margin: 4px 0 0; padding-left: 20px; display: grid; gap: 4px; width: 100%; }
+.explain { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+
+@media (max-width: 640px) {
+  .quiz-main { padding: 16px 14px 48px; }
+  .q-card { padding: 16px; }
+  .groups { grid-template-columns: 1fr; }
+  .options.blocks { grid-template-columns: 1fr; }
+  .topic { grid-template-columns: 1fr 1fr 40px; }
+}
+
+/* Online: pick your name from the class list */
+.suggest { display: flex; flex-wrap: wrap; gap: 8px; min-height: 8px; margin-top: 10px; }
+.sug { padding: 10px 16px; border: 1.5px solid var(--teal); border-radius: 12px; background: #fff; color: var(--teal-dark); font: inherit; font-size: 17px; font-weight: 700; cursor: pointer; }
+.sug:hover, .sug.on { background: var(--teal); color: #fff; }
+.picked-name { display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 12px; background: #e3f3ee; color: var(--teal-dark); font-weight: 800; font-size: 17px; }
+
+/* Result: big name and scores (students may screenshot this) */
+.result-name { font-size: clamp(30px, 5vw, 44px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; }
+.scores { display: flex; flex-wrap: wrap; gap: 14px; margin: 16px 0 6px; }
+.score-box { flex: 1 1 200px; padding: 14px 18px; border-radius: 16px; background: #f3f8f6; border: 1px solid var(--line); }
+.score-box > span { color: var(--muted); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+.score-box.twenty { background: #e9f5f1; border-color: #b4dad0; }
+.send-status { font-weight: 700; }
+.send-status.ok { color: var(--teal-dark); }
+.send-status.bad { color: var(--red); }
+
+/* Finish check: which questions are still empty (in the page, not the browser's pop-up) */
+.modal-back { position: fixed; inset: 0; z-index: 40; display: grid; place-items: center; padding: 16px; background: rgba(36, 67, 74, .45); }
+.modal { width: min(500px, 100%); padding: 26px 26px 22px; border-radius: 20px; background: var(--card); box-shadow: 0 24px 60px -20px rgba(36, 67, 74, .6); }
+.modal h2 { margin: 0 0 8px; font-size: 26px; line-height: 1.2; letter-spacing: -.5px; }
+.modal p { margin: 0 0 16px; color: var(--muted); font-size: 17px; }
+.modal-dots { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.modal .dot { width: 38px; height: 38px; font-size: 15px; border: 1.5px solid var(--orange); background: #fff6e8; color: #8a5a17; }
+.modal .dot:hover { background: var(--orange); color: #fff; }
+.modal-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+.modal-actions .btn { height: 46px; padding: 0 20px; font-size: 16px; border-radius: 12px; }

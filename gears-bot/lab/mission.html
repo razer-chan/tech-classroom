@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mission · Robot Lab</title>
+  <link rel="stylesheet" href="css/lab.css?v=4636962f">
+  <script src="vendor/blockly/blockly_compressed.js"></script>
+  <script src="vendor/blockly/blocks_compressed.js"></script>
+  <script src="vendor/blockly/javascript_compressed.js"></script>
+  <script src="vendor/blockly/msg/en.js"></script>
+  <script type="importmap">
+    { "imports": {
+      "three": "./vendor/three/three.module.min.js",
+      "three/addons/": "./vendor/three/addons/"
+    } }
+  </script>
+</head>
+<body class="mission">
+  <header class="bar">
+    <a class="back" href="./">← Missions</a>
+    <div class="title"><span class="eyebrow" id="mission-number"></span><strong id="mission-title"></strong></div>
+    <div class="actions">
+      <button class="btn run" id="run">▶ Run</button>
+      <button class="btn stop" id="stop" disabled>■ Stop</button>
+      <button class="btn" id="reset">↺ Reset</button>
+      <span class="divider"></span>
+      <button class="btn" id="export" title="Download your code to keep it">⤓ Export</button>
+      <button class="btn" id="import" title="Load code you exported before">⤒ Import</button>
+      <button class="btn submit" id="submit">✓ Submit</button>
+      <input type="file" id="open-file" accept=".txt,.json,text/plain,application/json" hidden>
+    </div>
+  </header>
+
+  <main class="split" id="split">
+    <section class="code-pane" aria-label="Code"><div id="blockly"></div></section>
+    <div class="gutter" id="gutter" role="separator" aria-orientation="vertical" title="Drag to resize"></div>
+    <section class="sim-pane" aria-label="Simulator">
+      <div id="view"></div>
+      <div class="bubble" id="bubble" hidden></div>
+
+      <div class="hud goal" id="goal"></div>
+
+      <div class="hud view-controls">
+        <div class="seg" id="camera">
+          <button data-mode="3d" class="on">3D</button>
+          <button data-mode="top">Top</button>
+          <button data-mode="follow">Follow</button>
+        </div>
+        <span class="sep"></span>
+        <div class="seg" id="speed">
+          <button data-speed="1" class="on">1×</button>
+          <button data-speed="2">2×</button>
+          <button data-speed="4">4×</button>
+        </div>
+      </div>
+
+      <div class="hud sensors" aria-live="off">
+        <span>Color</span><b id="s-color">–</b>
+        <span>Distance</span><b id="s-distance">–</b>
+        <span>Gyro</span><b id="s-gyro">–</b>
+        <span>Touch</span><b id="s-touch">–</b>
+        <span class="fork-only">Fork</span><b class="fork-only" id="s-fork">–</b>
+      </div>
+
+      <div class="toast" id="toast" role="status"></div>
+
+      <div class="oops" id="oops" role="alert" hidden></div>
+
+      <div class="demo-bar" id="demo-bar" hidden>
+        <span class="ghost-dot"></span><span id="demo-label">Demo</span>
+        <button class="btn small" id="demo-stop">■ Stop demo</button>
+      </div>
+
+      <div class="win" id="result" hidden><div class="card" id="result-card"></div></div>
+
+      <div class="win" id="win" hidden>
+        <div class="card">
+          <div class="tick">✓</div>
+          <h2>Mission complete!</h2>
+          <p id="win-detail"></p>
+          <div class="row">
+            <button class="btn" id="win-close">Keep going</button>
+            <button class="btn run" id="win-submit">✓ Submit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="modal" id="submit-dialog">
+    <form method="dialog" id="submit-form">
+      <h2>Submit your work</h2>
+      <p>This saves your code and your result in one file. Hand that file in.</p>
+      <label for="student-name">Enter your full name</label>
+      <input id="student-name" name="name" autocomplete="name" placeholder="e.g. Alex Nguyen" required minlength="3">
+      <p class="hint" id="submit-error" hidden>Please type your first and last name.</p>
+      <div class="row">
+        <button class="btn" value="cancel" formnovalidate>Cancel</button>
+        <button class="btn run" value="ok" id="submit-go">⤓ Download file</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="js/app.js?v=4636962f"></script>
+</body>
+</html>

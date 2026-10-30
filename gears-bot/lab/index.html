@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Program a robot with blocks and test it straight away.">
+  <title>Robot Lab · Missions</title>
+  <link rel="stylesheet" href="css/lab.css?v=4636962f">
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="../">ROBOTICS LAB</a>
+      <span>Robot Lab</span>
+    </header>
+    <div class="hero">
+      <div class="eyebrow">Code · Run · Fix</div>
+      <h1>Robot Lab</h1>
+      <p>Pick a mission. Blocks on the left, robot on the right.</p>
+    </div>
+    <div class="missions" id="missions"></div>
+    <footer>
+      Robot Lab is based on <a href="https://github.com/QuirkyCort/gears" target="_blank" rel="noopener">GEARS</a>
+      by Cort Wee · GPL-3.0 · <a href="LICENSE">License</a>
+    </footer>
+  </div>
+
+  <script type="module">
+    import { MISSIONS, progress } from './js/missions.js?v=4636962f';
+    import { buildMaze } from './js/maze.js?v=4636962f';
+    import { ZONE_COLORS } from './js/world.js?v=4636962f';
+
+    function mazeArt(def) {
+      const { rows, columns, colWalls, rowWalls } = buildMaze(def.rows, def.columns, def.seed);
+      const s = 20, w = columns * s, h = rows * s;
+      const y = r => h - r * s;                       // row 0 at the bottom
+      const cell = (r, c, colour) => `<rect x="${c * s}" y="${y(r + 1)}" width="${s}" height="${s}" fill="${colour}"/>`;
+      let lines = '';
+      colWalls.forEach((row, r) => row.forEach((on, c) => {
+        if (on) lines += `M${(c + 1) * s} ${y(r)}V${y(r + 1)}`;
+      }));
+      rowWalls.forEach((row, r) => row.forEach((on, c) => {
+        if (on) lines += `M${c * s} ${y(r + 1)}H${(c + 1) * s}`;
+      }));
+      return `<svg viewBox="-4 -4 ${w + 8} ${h + 8}" aria-hidden="true">
+        <rect width="${w}" height="${h}" fill="#f4f6f5"/>
+        ${cell(0, 0, ZONE_COLORS.Green)}${cell(0, columns - 1, ZONE_COLORS.Yellow)}
+        ${cell(rows - 1, columns - 1, ZONE_COLORS.Red)}${cell(rows - 1, 0, ZONE_COLORS.Blue)}
+        <path d="${lines}M0 0H${w}V${h}H0Z" fill="none" stroke="#33434a" stroke-width="2.4" stroke-linecap="square"/>
+      </svg>`;
+    }
+
+    const FORKLIFT = `<svg viewBox="0 0 160 110" aria-hidden="true">
+      <rect x="18" y="38" width="62" height="40" rx="8" fill="#e5a14b"/>
+      <rect x="30" y="18" width="34" height="28" rx="5" fill="none" stroke="#29484e" stroke-width="5"/>
+      <rect x="86" y="10" width="7" height="72" rx="2" fill="#29484e"/>
+      <rect x="93" y="70" width="44" height="7" rx="2" fill="#29484e"/>
+      <rect x="98" y="48" width="38" height="20" rx="2" fill="#c9a26b"/>
+      <circle cx="36" cy="84" r="12" fill="#29484e"/><circle cx="70" cy="84" r="12" fill="#29484e"/>
+      <circle cx="36" cy="84" r="4" fill="#fff1d6"/><circle cx="70" cy="84" r="4" fill="#fff1d6"/>
+    </svg>`;
+
+    const DRIVING = `<svg viewBox="0 0 160 110" aria-hidden="true">
+      <rect x="0" y="30" width="160" height="50" fill="#4b5357"/>
+      <path d="M0 55H160" stroke="#f4f4f0" stroke-width="3" stroke-dasharray="12 9"/>
+      <path d="M0 32H160M0 78H160" stroke="#f4f4f0" stroke-width="2.5"/>
+      <rect x="112" y="4" width="16" height="40" rx="4" fill="#20272b"/>
+      <circle cx="120" cy="14" r="4.5" fill="#ff3b30"/><circle cx="120" cy="24" r="4.5" fill="#3a3f42"/><circle cx="120" cy="34" r="4.5" fill="#3a3f42"/>
+      <rect x="118" y="44" width="4" height="22" fill="#59636a"/>
+      <rect x="34" y="57" width="40" height="18" rx="5" fill="#e5a14b"/><rect x="42" y="51" width="22" height="10" rx="3" fill="#fff1d6"/>
+      <circle cx="42" cy="76" r="5" fill="#29484e"/><circle cx="66" cy="76" r="5" fill="#29484e"/>
+      <rect x="84" y="86" width="26" height="20" rx="3" fill="#fff" stroke="#d92d20" stroke-width="3"/><text x="97" y="102" text-anchor="middle" font-family="system-ui" font-weight="900" font-size="16" fill="#d92d20">P</text>
+    </svg>`;
+
+    const QUIZ = `<svg viewBox="0 0 160 110" aria-hidden="true">
+      <rect x="30" y="8" width="100" height="94" rx="10" fill="#fff" stroke="#29484e" stroke-width="4"/>
+      <circle cx="50" cy="32" r="8" fill="#087c79"/><path d="M46 32l3 3 6-6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      <rect x="64" y="28" width="52" height="8" rx="4" fill="#c9d9d3"/>
+      <circle cx="50" cy="56" r="8" fill="none" stroke="#29484e" stroke-width="3"/><rect x="64" y="52" width="44" height="8" rx="4" fill="#c9d9d3"/>
+      <rect x="42" y="72" width="34" height="18" rx="5" fill="#5b80a5"/><rect x="80" y="72" width="34" height="18" rx="5" fill="#e5a14b"/>
+    </svg>`;
+    const quizCard = `<a class="mission-card" href="quiz.html">${progress.isDone('quiz') ? '<span class="status done">✓ Done</span>' : ''}<div class="thumb">${QUIZ}</div>
+      <div class="body"><div class="eyebrow">Quiz</div><h2>Robot Lab Quiz</h2><p>28 questions on blocks, sensors, loops and flowcharts. Some are drag and drop.</p></div></a>`;
+
+    document.getElementById('missions').innerHTML = MISSIONS.map(m => {
+      const art = m.world?.type == 'maze' ? mazeArt(m.world) : m.world?.type == 'drive' ? DRIVING : FORKLIFT;
+      const status = m.comingSoon
+        ? '<span class="status">Coming soon</span>'
+        : progress.isDone(m.id) ? '<span class="status done">✓ Done</span>' : '';
+      const inner = `${status}<div class="thumb">${art}</div>
+        <div class="body"><div class="eyebrow">Mission ${m.number}</div><h2>${m.title}</h2><p>${m.summary}</p></div>`;
+      return m.comingSoon
+        ? `<div class="mission-card soon">${inner}</div>`
+        : `<a class="mission-card" href="mission.html?m=${m.id}">${inner}</a>`;
+    }).join('') + quizCard;
+  </script>
+</body>
+</html>
